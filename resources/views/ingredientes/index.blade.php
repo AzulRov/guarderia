@@ -1,0 +1,78 @@
+@extends("layouts.template")
+
+@section("content")
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-9">
+        <div class="card shadow-lg border-0" style="border-radius: 12px; overflow: hidden;">
+
+            <div class="card-header text-white text-center py-3" style="background-color: #f57c00;">
+                <h4 class="mb-0">Lista de Ingredientes</h4>
+            </div>
+
+            <div class="card-body p-4">
+
+                <div class="mb-4">
+                    <a href="{{ route('ingredientes.create') }}"
+                       class="btn text-white px-4"
+                       style="background-color: #ef6c00;">
+                        Registrar
+                    </a>
+                </div>
+
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped align-middle text-center">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>No</th>
+                                <th>ID Ingrediente</th>
+                                <th>Nombre</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($ingredientes as $ingrediente)
+                                <tr>
+                                    <td class="fw-bold">{{ $loop->iteration }}</td>
+                                    <td>{{ $ingrediente->id_ingrediente }}</td>
+                                    <td>{{ $ingrediente->nombre }}</td>
+                                    <td>
+                                        <a href="{{ route('ingredientes.edit', $ingrediente->id_ingrediente) }}"
+                                           class="btn btn-warning btn-sm text-white">
+                                            Editar
+                                        </a>
+
+                                        <form action="{{ route('ingredientes.destroy', $ingrediente->id_ingrediente) }}"
+                                              method="POST"
+                                              style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('¿Seguro que deseas eliminar este ingrediente?')">
+                                                Borrar
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4">No hay ingredientes registrados</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection

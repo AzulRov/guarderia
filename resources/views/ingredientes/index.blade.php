@@ -30,7 +30,6 @@
                     <table class="table table-hover table-striped align-middle text-center">
                         <thead class="table-dark">
                             <tr>
-                                <th>No</th>
                                 <th>ID Ingrediente</th>
                                 <th>Nombre</th>
                                 <th>Acciones</th>
@@ -39,7 +38,6 @@
                         <tbody>
                             @forelse($ingredientes as $ingrediente)
                                 <tr>
-                                    <td class="fw-bold">{{ $loop->iteration }}</td>
                                     <td>{{ $ingrediente->id_ingrediente }}</td>
                                     <td>{{ $ingrediente->nombre }}</td>
                                     <td>

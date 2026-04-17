@@ -26,8 +26,8 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>No</th>
-                                <th>ID Ingrediente</th>
-                                <th>ID Niño</th>
+                                <th>Ingrediente</th>
+                                <th>Niño</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -36,8 +36,8 @@
                             @forelse($alergias as $alergia)
                                 <tr>
                                     <td class="fw-bold">{{ $loop->index + 1 }}</td>
-                                    <td>{{ $alergia->id_ingrediente }}</td>
-                                    <td>{{ $alergia->id_ninio }}</td>
+                                    <td>{{ $alergia->ingrediente }}</td>
+                                    <td>{{ $alergia->ninio }}</td>
                                     <td>
                                         <a href="{{ route('alergias.edit', $alergia->id_alergia) }}"
                                            class="btn btn-warning btn-sm text-white">

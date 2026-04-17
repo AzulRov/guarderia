@@ -30,9 +30,8 @@
                     <table class="table table-hover table-striped text-center">
                         <thead class="table-dark">
                             <tr>
-                                <th>No</th>
                                 <th>ID Baja</th>
-                                <th>ID Niño</th>
+                                <th>Niño</th>
                                 <th>Motivo</th>
                                 <th>Fecha</th>
                                 <th>Acciones</th>
@@ -42,9 +41,8 @@
                         <tbody>
                             @forelse($bajas as $baja)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $baja->id_baja }}</td>
-                                    <td>{{ $baja->id_ninio }}</td>
+                                    <td>{{ $baja->ninio }}</td>
                                     <td>{{ $baja->motivo }}</td>
                                     <td>{{ $baja->fecha }}</td>
                                     <td>

@@ -10,6 +10,18 @@ class NinioController extends Controller
     public function index()
     {
         $ninios = Ninio::all();
+
+        $ninios = Ninio::join('personas', 'personas.id_persona', '=', 'ninios.id_persona')
+    ->join('centros', 'centros.id_centro', '=', 'ninios.id_centro')
+    ->select(
+        'ninios.id_ninio',
+        'ninios.matricula',
+        'ninios.fecha',
+        'personas.nom as persona',
+        'centros.nom as centro'
+    )
+    ->get();
+        
         return view('ninios.index', compact('ninios'));
     }
 

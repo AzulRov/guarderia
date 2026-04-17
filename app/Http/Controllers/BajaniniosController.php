@@ -11,6 +11,16 @@ class BajaniniosController extends Controller
     public function index()
     {
         $bajas = Bajaninios::all();
+        $bajas = Bajaninios::join('ninios', 'ninios.id_ninio', '=', 'bajaninios.id_ninio')
+    ->join('personas', 'personas.id_persona', '=', 'ninios.id_persona')
+    ->select(
+        'bajaninios.id_baja',
+        'personas.nom as ninio',
+        'bajaninios.motivo',
+        'bajaninios.fecha'
+    )
+    ->get();
+
         return view('bajaninios.index', compact('bajas'));
     }
 

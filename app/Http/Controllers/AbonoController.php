@@ -22,11 +22,12 @@ class AbonoController extends Controller
          * AND ninios.id_persona = personas.id_persona;
          */
         $abonos = Abono::join("registro_cuentas","registro_cuentas.id_regcuenta","abonos.id_regcuenta")
-        ->join("familiares","familiares.id_fam", "registro_cuentas.id_fam")
-        ->join("ninios","ninios.id_ninio","familiares.id_ninio")
-        ->join("personas","personas.id_persona", "ninios.id_persona")
-            ->select("abonos.id_abono","abonos.cantidad","abonos.fecha","personas.nom", "registro_cuentas.cuenta")
-        ->get();
+    ->join("familiares","familiares.id_fam","registro_cuentas.id_fam")
+    ->join("ninios","ninios.id_ninio","familiares.id_ninio")
+    ->join("personas as pn","pn.id_persona","=","ninios.id_persona")
+    ->join("personas as pf","pf.id_persona","=","familiares.id_persona")
+    ->select("abonos.id_abono","abonos.cantidad","abonos.fecha","registro_cuentas.cuenta","pn.nom as nom","pf.nom as familiar")
+    ->get();
         return view('abonos.index', compact('abonos')); 
     }
 

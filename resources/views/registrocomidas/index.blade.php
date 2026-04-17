@@ -39,8 +39,8 @@
                         @forelse($registrocomidas as $registro)
                             <tr>
                                 <td>{{ $registro->id_registrocomida }}</td>
-                                <td>{{ $registro->id_nino }}</td>
-                                <td>{{ $registro->id_plato }}</td>
+                                <td>{{ $registro->nino }}</td>
+                                <td>{{ $registro->plato }}</td>
                                 <td>{{ $registro->fecha }}</td>
                                 <td>{{ $registro->cantidad }}</td>
                                 <td>

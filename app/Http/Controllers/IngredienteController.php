@@ -10,6 +10,7 @@ class IngredienteController extends Controller
     public function index()
     {
         $ingredientes = Ingrediente::all();
+        $ingredientes = Ingrediente::orderBy('id_ingrediente', 'asc')->get();
         return view('ingredientes.index', compact('ingredientes'));
     }
 

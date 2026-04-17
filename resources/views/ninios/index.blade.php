@@ -47,8 +47,9 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $n->matricula }}</td>
                                 <td>{{ $n->fecha }}</td>
-                                <td>{{ $n->id_persona }}</td>
-                                <td>{{ $n->id_centro }}</td>
+                                <td>{{ $n->persona }}</td>
+                                <td>{{ $n->centro }}</td>
+
                                 <td>
                                     <a href="{{ route('ninios.edit', $n->id_ninio) }}"
                                        class="btn btn-warning btn-sm text-white">

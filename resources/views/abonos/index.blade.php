@@ -33,6 +33,7 @@
                                 <th>Cantidad</th>
                                 <th>Fecha</th>
                                 <th>ID Cuenta</th>
+                                <th>Familiar</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -45,6 +46,7 @@
                                     <td>{{ $abono->cantidad }}</td>
                                     <td>{{ $abono->fecha }}</td>
                                     <td>{{ $abono->nom }}</td>
+                                    <td>{{$abono->familiar}}</td>
                                     
 
                                     <td>
